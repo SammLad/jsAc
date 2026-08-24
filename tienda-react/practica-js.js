@@ -92,3 +92,16 @@ productos.forEach(producto => {
 const nombres = productos.map(producto => {
     return producto.nombre;
 });
+
+
+//ACT 5
+const disponibles = productos.filter(
+    producto => producto.precio >= 50000 & producto.precio <= 200000
+);
+
+const encontrado = productos.find(
+    producto => producto.id === 5
+);
+
+console.log(disponibles);
+console.log(encontrado);
