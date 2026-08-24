@@ -10,74 +10,65 @@
 
 
 //ACT 1
-// function sumar(a, b) {
-//     let re = a + b;
-//     return re;
-// }
+function sumar(a, b) {
+    let re = a + b;
+    return re;
+}
 
-// function restar(a, b) {
-//     let re = a - b;
-//     return re;
-// }
+function restar(a, b) {
+    let re = a - b;
+    return re;
+}
 
-// function multiplicar(a, b) {
-//     let re = a * b;
-//     return re;
-// }
+function multiplicar(a, b) {
+    let re = a * b;
+    return re;
+}
 
-// function dividir(a, b) {
-//     let re = a / b;
-//     return re;
-// }
+function dividir(a, b) {
+    let re = a / b;
+    return re;
+}
 
-// function calcularPromedio(nota1, nota2, nota3) {
-//     let re = (nota1, nota2, nota3) / 3
-//     return re;
-// }
-// const re1 = sumar(3, 7);
-// const re2 = restar(9, 2);
-// const re3 = multiplicar(5, 20);
-// const re4 = dividir(10, 5);
-// const prom = calcularPromedio(70, 80, 65);
+function calcularPromedio(nota1, nota2, nota3) {
+    let re = (nota1, nota2, nota3) / 3
+    return re;
+}
+const re1 = sumar(3, 7);
+const re2 = restar(9, 2);
+const re3 = multiplicar(5, 20);
+const re4 = dividir(10, 5);
+const prom = calcularPromedio(70, 80, 65);
 
 
-// console.log("Suma:", re1, "Resta:", re2, "Multiplicación:", re3, "División:", re4);
-// console.log("Promedio", prom);
+console.log("Suma:", re1, "Resta:", re2, "Multiplicación:", re3, "División:", re4);
+console.log("Promedio", prom);
 
 // //console.log es para que los que esté dentro del parentesis y comillas salga en la terminal al ejecutar
 // //return es para que el valor al retornada en la función se le pueda atribuir a una variable
 
 
-// // function aplicarIva(precio) {
-// //     return precio * 1.19;
-// // }
-
-// // const aplicarIva = (precio) => {
-// //     return precio * 1.19;
-// // };
-
-
 
 //ACT 2
-// const aplicarIva = precio => precio * 1.19;
+const aplicarIva = precio => precio * 1.19;
 
-// function esMayorEdad(edad) { return edad >= 18; }
-// console.log(aplicarIva(30000))
-// console.log(esMayorEdad(17))
+function esMayorEdad(edad) { return edad >= 18; }
+console.log(aplicarIva(30000))
+console.log(esMayorEdad(17))
 
-// const cuadrado = numero => numero * numero;
-// const esMayorEdad = edad => {
-//     if (edad > 18) {
-//         return "Es mayor de edad"
-//     } else {
-//         return "Es menor de edad"
-//     }
-// };
-// const nombreCompleto = (nombre, apellido) => nombre + " " + apellido;
+const cuadrado = numero => numero * numero;
+const esMayorEdad = edad => {
+    if (edad > 18) {
+        return "Es mayor de edad"
+    } else {
+        return "Es menor de edad"
+    }
+};
+const nombreCompleto = (nombre, apellido) => nombre + " " + apellido;
 
-// console.log(cuadrado(12));
-// console.log(esMayorEdad(17));
-// console.log(nombreCompleto("Laura", "Ladino"));
+console.log(cuadrado(12));
+console.log(esMayorEdad(17));
+console.log(nombreCompleto("Laura", "Ladino"));
 
 
 
@@ -102,45 +93,45 @@ const productos = [
 
 //ACT 4
 
-// productos.forEach((producto, indice) => {
-//     console.log(`${indice + 1}. ${producto.nombre} - ${producto.precio} - ${producto.stock}`);
-// });
+productos.forEach((producto, indice) => {
+    console.log(`${indice + 1}. ${producto.nombre} - ${producto.precio} - ${producto.stock}`);
+});
 
 
 
 
 //ACT 5
-// const nombres = productos.map(producto => producto.nombre);
-// const preciosConIva = productos.map(producto => producto.precio * 1.19);
-// const nombresMayuscula = productos.map(producto => producto.nombre.toUpperCase());
-// const resumenProductos = productos.map(producto => producto.nombre + " cuesta " + producto.precio);
-// console.log(nombres);
-// console.log(preciosConIva);
-// console.log(nombresMayuscula);
-// console.log(resumenProductos);
+const nombres = productos.map(producto => producto.nombre);
+const preciosConIva = productos.map(producto => producto.precio * 1.19);
+const nombresMayuscula = productos.map(producto => producto.nombre.toUpperCase());
+const resumenProductos = productos.map(producto => producto.nombre + " cuesta " + producto.precio);
+console.log(nombres);
+console.log(preciosConIva);
+console.log(nombresMayuscula);
+console.log(resumenProductos);
+
+
 
 //ACT 6
+const precioMayor = productos.filter(producto => producto.precio > 100000);
+const precioEntre = productos.filter(
+    producto => producto.precio >= 50000 & producto.precio <= 200000
+);
+const categEscogida = productos.filter(producto => producto.categoria === 'Accesorios');
+const id5 = productos.find(producto => producto.id === 5);
+const buscarProducto = (id) => {
+    return productos.find(producto => producto.id === id);
+};
 
-// const precioMayor = productos.filter(producto => producto.precio > 100000);
-// const precioEntre = productos.filter(
-//     producto => producto.precio >= 50000 & producto.precio <= 200000
-// );
-// const categEscogida = productos.filter(producto => producto.categoria === 'Accesorios');
-// const id5 = productos.find(producto => producto.id === 5);
-// const buscarProducto = (id) => {
-//     return productos.find(producto => producto.id === id);
-// };
-
-// console.log(precioMayor);
-// console.log(precioEntre);
-// console.log(categEscogida);
-// console.log(id5);
-// console.log(buscarProducto(4));
+console.log(precioMayor);
+console.log(precioEntre);
+console.log(categEscogida);
+console.log(id5);
+console.log(buscarProducto(4));
 
 
 
 //ACT 7
-
 const hayAgotados = productos.some(p => p.stock === 0);
 
 const preciosValidos = productos.every(p => p.precio > 0);
@@ -155,20 +146,19 @@ const valorInventario = productos.reduce(
 );
 
 
-// console.log("¿Algún producto agotado?:", hayAgotados);
-// console.log("¿Algún precio mayor a $1.000.000?:", preciosM)
-// console.log("¿Todos los precios mayor a $0?:", preciosValidos);
-// console.log("¿Stock igual o mayor a cero?:", stockM);
-// console.log("Valor total inventario:", valorInventario)
+console.log("¿Algún producto agotado?:", hayAgotados);
+console.log("¿Algún precio mayor a $1.000.000?:", preciosM)
+console.log("¿Todos los precios mayor a $0?:", preciosValidos);
+console.log("¿Stock igual o mayor a cero?:", stockM);
+console.log("Valor total inventario:", valorInventario)
 
 
 
 //ACT 8
-
 const productoActualizado = {
     ...productos[5],
-    precio: 90000,
-    stock: 4
+    precio: 80000,
+    stock: 7
 };
 
 const estado = productoActualizado.stock > 0 ? 'Disponible' : 'Agotado';
