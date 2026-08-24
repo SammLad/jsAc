@@ -27,12 +27,21 @@ function dividir(a, b) {
     return re;
 }
 
-const re1 = sumar(3, 7)
-const re2 = restar(9, 2)
-const re3 = multiplicar(5, 20)
-const re4 = dividir(10, 5)
+function calcularPromedio(nota1, nota2, nota3) {
+    let re = (nota1, nota2, nota3) / 3
+    return re;
+}
+const re1 = sumar(3, 7);
+const re2 = restar(9, 2);
+const re3 = multiplicar(5, 20);
+const re4 = dividir(10, 5);
+const prom = calcularPromedio(70, 80, 65);
 
-console.log("Suma:", re1, "Resta:", re2, "Multiplicación:", re3, "División:", re4)
+
+console.log("Suma:", re1, "Resta:", re2, "Multiplicación:", re3, "División:", re4);
+console.log("Promedio", prom);
 
 //console.log es para que los que esté dentro del parentesis y comillas salga en la terminal al ejecutar
 //return es para que el valor al retornada en la función se le pueda atribuir a una variable
+
+
