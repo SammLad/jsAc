@@ -83,3 +83,12 @@ const productos = [
 
 
 
+
+//ACT 4
+productos.forEach(producto => {
+    console.log(producto.nombre);
+});
+
+const nombres = productos.map(producto => {
+    return producto.nombre;
+});
