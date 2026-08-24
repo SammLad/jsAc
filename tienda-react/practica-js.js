@@ -7,6 +7,9 @@
 // const resultado = calcularTotal(50000, 3);
 // console.log(resultado);
 
+
+
+//ACT 1
 function sumar(a, b) {
     let re = a + b;
     return re;
@@ -43,5 +46,26 @@ console.log("Promedio", prom);
 
 //console.log es para que los que esté dentro del parentesis y comillas salga en la terminal al ejecutar
 //return es para que el valor al retornada en la función se le pueda atribuir a una variable
+
+
+// function aplicarIva(precio) {
+//     return precio * 1.19;
+// }
+
+// const aplicarIva = (precio) => {
+//     return precio * 1.19;
+// };
+
+
+
+//ACT 2
+const aplicarIva = precio => precio * 1.19;
+
+function esMayorEdad(edad) { return edad >= 18; }
+console.log(aplicarIva(30000))
+console.log(esMayorEdad(17))
+
+
+
 
 
