@@ -10,64 +10,64 @@
 
 
 //ACT 1
-function sumar(a, b) {
-    let re = a + b;
-    return re;
-}
-
-function restar(a, b) {
-    let re = a - b;
-    return re;
-}
-
-function multiplicar(a, b) {
-    let re = a * b;
-    return re;
-}
-
-function dividir(a, b) {
-    let re = a / b;
-    return re;
-}
-
-function calcularPromedio(nota1, nota2, nota3) {
-    let re = (nota1, nota2, nota3) / 3
-    return re;
-}
-const re1 = sumar(3, 7);
-const re2 = restar(9, 2);
-const re3 = multiplicar(5, 20);
-const re4 = dividir(10, 5);
-const prom = calcularPromedio(70, 80, 65);
-
-
-console.log("Suma:", re1, "Resta:", re2, "Multiplicación:", re3, "División:", re4);
-console.log("Promedio", prom);
-
-//console.log es para que los que esté dentro del parentesis y comillas salga en la terminal al ejecutar
-//return es para que el valor al retornada en la función se le pueda atribuir a una variable
-
-
-// function aplicarIva(precio) {
-//     return precio * 1.19;
+// function sumar(a, b) {
+//     let re = a + b;
+//     return re;
 // }
 
-// const aplicarIva = (precio) => {
-//     return precio * 1.19;
-// };
+// function restar(a, b) {
+//     let re = a - b;
+//     return re;
+// }
+
+// function multiplicar(a, b) {
+//     let re = a * b;
+//     return re;
+// }
+
+// function dividir(a, b) {
+//     let re = a / b;
+//     return re;
+// }
+
+// function calcularPromedio(nota1, nota2, nota3) {
+//     let re = (nota1, nota2, nota3) / 3
+//     return re;
+// }
+// const re1 = sumar(3, 7);
+// const re2 = restar(9, 2);
+// const re3 = multiplicar(5, 20);
+// const re4 = dividir(10, 5);
+// const prom = calcularPromedio(70, 80, 65);
+
+
+// console.log("Suma:", re1, "Resta:", re2, "Multiplicación:", re3, "División:", re4);
+// console.log("Promedio", prom);
+
+// //console.log es para que los que esté dentro del parentesis y comillas salga en la terminal al ejecutar
+// //return es para que el valor al retornada en la función se le pueda atribuir a una variable
+
+
+// // function aplicarIva(precio) {
+// //     return precio * 1.19;
+// // }
+
+// // const aplicarIva = (precio) => {
+// //     return precio * 1.19;
+// // };
 
 
 
-//ACT 2
-const aplicarIva = precio => precio * 1.19;
+// //ACT 2
+// const aplicarIva = precio => precio * 1.19;
 
-function esMayorEdad(edad) { return edad >= 18; }
-console.log(aplicarIva(30000))
-console.log(esMayorEdad(17))
+// function esMayorEdad(edad) { return edad >= 18; }
+// console.log(aplicarIva(30000))
+// console.log(esMayorEdad(17))
 
 
 
-// ACT 3
+// // ACT 3
 const productos = [
     { id: 1, nombre: 'Mouse', precio: 50000, stock: 5 },
     { id: 2, nombre: 'Teclado', precio: 90000, stock: 0 },
@@ -84,24 +84,45 @@ const productos = [
 
 
 
-//ACT 4
-productos.forEach(producto => {
-    console.log(producto.nombre);
-});
+// //ACT 4
+// productos.forEach(producto => {
+//     console.log(producto.nombre);
+// });
 
-const nombres = productos.map(producto => {
-    return producto.nombre;
-});
+// const nombres = productos.map(producto => {
+//     return producto.nombre;
+// });
 
 
-//ACT 5
-const disponibles = productos.filter(
-    producto => producto.precio >= 50000 & producto.precio <= 200000
+// //ACT 5
+// const disponibles = productos.filter(
+//     producto => producto.precio >= 50000 & producto.precio <= 200000
+// );
+
+// const encontrado = productos.find(
+//     producto => producto.id === 5
+// );
+
+// console.log(disponibles);
+// console.log(encontrado);
+
+
+
+//ACT 6
+const hayAgotados = productos.some(p => p.stock === 0);
+
+const preciosValidos = productos.every(p => p.precio > 0);
+
+const valorInventario = productos.reduce(
+    (total, p) => total + p.precio * p.stock,
+    0
 );
 
-const encontrado = productos.find(
-    producto => producto.id === 5
-);
 
-console.log(disponibles);
-console.log(encontrado);
+console.log(hayAgotados);
+console.log(preciosValidos);
+console.log(valorInventario);
+
+
+
+//ACT 7
