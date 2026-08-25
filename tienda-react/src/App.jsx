@@ -23,6 +23,7 @@ function App() {
               key={producto.id}
               producto={producto}
             />
+
           ))}
         </section>
         <section className="productos">
