@@ -1,41 +1,93 @@
-/* h1,
+:root {
+  --bg-main: #fdeaea;
+  --bg-section: #ffffff;
+  --bg-card: #ffdbdb;
+  --text-primary: #3b1e21;
+  --text-muted: #8b6464;
+  --border-color: #fff7f7;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px -3px rgba(111, 32, 32, 0.534);
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-muted);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+h1,
 h2 {
-  font-color: rgb(49, 47, 76);
-} */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary)
+}
 
 .contenedor {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
-  font-family: Arial, sans-serif;
+  padding: 40px 20px;
 }
 
-.productos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-}
-
-.producto-card {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 16px;
-  background: white;
+.contenedor>p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin: 4px 0;
 }
 
 .secciones {
   display: flex;
-  justify-content: space-around;
+  gap: 32px;
+  margin-top: 32px;
+  align-items: flex-start;
+}
 
+.secciones>section {
+  flex: 1;
+  background: var(--bg-section);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.secciones h2 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
 }
 
 .productos {
-  margin: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 0;
 }
 
 .producto-card {
-  padding: 10px;
-  width: 400px;
-  height: auto;
-  background-color: rgb(238, 253, 255);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  width: auto;
+  /* Corrección: cambiado de 400px a adaptativo */
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+@media (max-width: 850px) {
+  .secciones {
+    flex-direction: column;
+  }
+}
+
+.tiutle {
+  background-color: #3b1e21;
 }
