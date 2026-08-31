@@ -12,3 +12,13 @@ Aplicación desarrollada en React con Vite para la gestión y visualización de 
 * **Herramientas:** Uso de Vite con React y Oxlint para la verificación de código.
 * **Componentización:** Separación de datos en `src/data/productos.js` y componentes reutilizables como `ProductoCard.jsx`.
 * **Renderizado:** Uso del método `.map()` y claves únicas (`key={producto.id}`) para el manejo eficiente de listas en JSX.
+
+
+## Taller 3
+La aplicación ahora permite:
+- Agregar productos
+- Validar formularios
+- Eliminar productos
+- Modificar stock
+- Calcular inventario dinámicamente
+- Gestionar estado con useState
