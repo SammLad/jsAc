@@ -37,46 +37,66 @@ function FormularioProducto({ onAgregar }) {
             stock: Number(formulario.stock)
         };
 
-        onAgregar(nuevoProducto);   
+        onAgregar(nuevoProducto);
     };
+
 
     return (
         <form onSubmit={manejarEnvio}>
+
             <h2>Agregar producto</h2>
 
-            <input
-                type="text"
-                name="nombre"
-                placeholder="Nombre"
-                value={formulario.nombre}
-                onChange={manejarCambio}
-            />
+            <div className="campo-formulario">
+                <label>Nombre del producto</label>
+                <input
+                    type="text"
+                    name="nombre"
+                    placeholder="Ej: Mouse inalámbrico"
+                    value={formulario.nombre}
+                    onChange={manejarCambio}
+                />
+            </div>
 
-            <input
-                type="text"
-                name="categoria"
-                placeholder="Categoría"
-                value={formulario.categoria}
-                onChange={manejarCambio}
-            />
+            <div className="campo-formulario">
+                <label>Categoría</label>
+                <input
+                    type="text"
+                    name="categoria"
+                    placeholder="Ej: Perifericos"
+                    value={formulario.categoria}
+                    onChange={manejarCambio}
+                />
+            </div>
 
-            <input
-                type="number"
-                name="precio"
-                placeholder="Precio"
-                value={formulario.precio}
-                onChange={manejarCambio}
-            />
+            <div className="campo-formulario">
+                <label>Precio</label>
+                <input
+                    type="number"
+                    name="precio"
+                    placeholder="Ej: 50000"
+                    value={formulario.precio}
+                    onChange={manejarCambio}
+                />
+            </div>
 
-            <input
-                type="number"
-                name="stock"
-                placeholder="Stock"
-                value={formulario.stock}
-                onChange={manejarCambio}
-            />
+            <div className="campo-formulario">
+                <label>Stock</label>
+                <input
+                    type="number"
+                    name="stock"
+                    placeholder="Ej: 10"
+                    value={formulario.stock}
+                    onChange={manejarCambio}
+                />
+            </div>
 
-            <button type="submit">Agregar producto</button>
+            <button
+                type="submit"
+                className="btn-agregar"
+            >
+                Agregar producto
+            </button>
+
         </form>
     );
 }
