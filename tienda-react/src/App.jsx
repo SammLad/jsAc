@@ -19,6 +19,14 @@ function App() {
   );
   const estado = noDisponibles ? 'Si hay' : 'No hay';
 
+  const agregarProducto = (nuevoProducto) => {
+
+    setProductos([
+      ...productos,
+      nuevoProducto
+    ]);
+  };
+
   const productosFiltrados = productos.filter(producto => {
     const coincideNombre = producto.nombre
       .toLowerCase()
@@ -112,7 +120,8 @@ function App() {
 
 
       <section className='FormAddProd'>
-        <FormularioProducto />
+        <FormularioProducto
+          onAgregar={agregarProducto} />
       </section>
 
 

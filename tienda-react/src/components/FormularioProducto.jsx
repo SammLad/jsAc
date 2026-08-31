@@ -1,22 +1,82 @@
 import { useState } from "react";
 
-function FormularioProducto() {
-    const { formulario, setFormulraio } = useState({
+function FormularioProducto({ onAgregar }) {
+
+    const [formulario, setFormulario] = useState({
         nombre: "",
         precio: "",
         categoria: "",
         stock: ""
     });
 
+    const manejarCambio = (evento) => {
+        setFormulario({
+            ...formulario,
+            [evento.target.name]: evento.target.value
+        });
+    };
+
+    const manejarEnvio = (evento) => {
+        evento.preventDefault();
+
+        if (
+            formulario.nombre.trim() === "" ||
+            formulario.categoria.trim() === "" ||
+            Number(formulario.precio) <= 0 ||
+            Number(formulario.stock) < 0
+        ) {
+            alert("Revisa los datos del producto");
+            return;
+        }
+
+        const nuevoProducto = {
+            id: Date.now(),
+            nombre: formulario.nombre,
+            precio: Number(formulario.precio),
+            categoria: formulario.categoria,
+            stock: Number(formulario.stock)
+        };
+
+        onAgregar(nuevoProducto);
+    };
+
     return (
-        <form>
+        <form onSubmit={manejarEnvio}>
             <h2>Agregar producto</h2>
 
-            <input type="text" name="nombre" placeholder='Nombre' />
-            <input type="text" name='categoria' placeholder='Categoría' />
-            <input type="number" name='precio' placeholder='Precio' />
-            <input type="number" name='stock' placeholder='Stock' />
-            <button type='submit'>Agregar producto</button>
+            <input
+                type="text"
+                name="nombre"
+                placeholder="Nombre"
+                value={formulario.nombre}
+                onChange={manejarCambio}
+            />
+
+            <input
+                type="text"
+                name="categoria"
+                placeholder="Categoría"
+                value={formulario.categoria}
+                onChange={manejarCambio}
+            />
+
+            <input
+                type="number"
+                name="precio"
+                placeholder="Precio"
+                value={formulario.precio}
+                onChange={manejarCambio}
+            />
+
+            <input
+                type="number"
+                name="stock"
+                placeholder="Stock"
+                value={formulario.stock}
+                onChange={manejarCambio}
+            />
+
+            <button type="submit">Agregar producto</button>
         </form>
     );
 }
