@@ -37,7 +37,7 @@ function FormularioProducto({ onAgregar }) {
             stock: Number(formulario.stock)
         };
 
-        onAgregar(nuevoProducto);
+        onAgregar(nuevoProducto);   
     };
 
     return (

@@ -12,12 +12,11 @@ function App() {
   const [productos, setProductos] = useState(productosIniciales);
 
   const disponibles = productos.filter(producto => producto.stock > 0);
-  const noDisponibles = productos.some(producto => producto.stock === 0);
+  const noDisponibles = productos.filter(producto => producto.stock === 0);
   const valorInventario = productos.reduce(
     (total, producto) => total + producto.precio * producto.stock,
     0
   );
-  const estado = noDisponibles ? 'Si hay' : 'No hay';
 
   const agregarProducto = (nuevoProducto) => {
 
@@ -51,6 +50,35 @@ function App() {
     setOrden("normal");
   };
 
+  const eliminarProductos = (id) => {
+
+    const nuevaLista = productos.filter(
+      producto => producto.id !== id
+    );
+
+    setProductos (nuevaLista);
+    alert('Producto eliminado')
+  };
+
+  const modificarStock = (id, cambio) => {
+
+    const nuevosProductos =
+      productos.map(producto => {
+
+        if (producto.id === id) {
+          return {
+            ...producto,
+            stock:Math.max(
+              0,
+              producto.stock + cambio
+            )
+          };
+        }
+        return producto;
+      });
+      setProductos (nuevosProductos);
+  };
+
   return (
     <main className="contenedor">
       <header className="banner-titulo">
@@ -59,7 +87,7 @@ function App() {
           <p><strong>Disponibles:</strong> {disponibles.length}</p>
           <p><strong>Valor inventario:</strong> ${valorInventario.toLocaleString()}</p>
 
-          <p><strong>Agotados:</strong> {estado}</p>
+          <p><strong>Agotados:</strong> {noDisponibles.length}</p>
         </div>
       </header>
 
@@ -130,6 +158,8 @@ function App() {
           <ProductoCard
             key={producto.id}
             producto={producto}
+            onEliminar={eliminarProductos}
+            modificarStock={modificarStock}
           />
         ))}
       </section>
