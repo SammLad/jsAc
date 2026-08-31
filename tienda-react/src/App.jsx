@@ -1,13 +1,15 @@
 import ProductoCard from './components/ProductoCard';
-import { productos } from './data/productos';
+import { productos as productosIniciales } from './data/productos';
 import { useState } from "react";
 import './App.css';
+import FormularioProducto from './components/FormularioProducto';
 
 function App() {
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("Todas");
   const [soloDisponibles, setSoloDisponibles] = useState(false);
   const [orden, setOrden] = useState("normal");
+  const [productos, setProductos] = useState(productosIniciales);
 
   const disponibles = productos.filter(producto => producto.stock > 0);
   const noDisponibles = productos.some(producto => producto.stock === 0);
@@ -107,6 +109,12 @@ function App() {
       <div className="info-resultados">
         <p>Productos encontrados: <strong>{productosOrdenados.length}</strong></p>
       </div>
+
+
+      <section className='FormAddProd'>
+        <FormularioProducto />
+      </section>
+
 
       <section className="productos-grid">
         {productosOrdenados.map(producto => (
