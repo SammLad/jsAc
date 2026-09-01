@@ -1,6 +1,6 @@
 function ProductoCard({ producto, onEliminar, modificarStock }) {
     const {
-        nombre, precio, categoria, stock
+        nombre, precio, categoria, stock, imagen
     } = producto;
     const estado = stock > 0 ? "Disponible" : "Agotado";
     const mostrarProducto = () => {
@@ -14,6 +14,15 @@ function ProductoCard({ producto, onEliminar, modificarStock }) {
         <article className="producto-card">
 
             <h2>{nombre}</h2>
+
+            {imagen && (
+                <img
+                    src={imagen}
+                    alt={nombre}
+                    className="imagen-producto"
+                    style={{ width: "100%", height: "180px", objectFit: "cover", borderRadius: "8px" }}
+                />
+            )}
 
             <p>
                 <strong>Categoría:</strong> {categoria}

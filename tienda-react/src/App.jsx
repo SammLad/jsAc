@@ -56,7 +56,7 @@ function App() {
       producto => producto.id !== id
     );
 
-    setProductos (nuevaLista);
+    setProductos(nuevaLista);
     alert('Producto eliminado')
   };
 
@@ -68,7 +68,7 @@ function App() {
         if (producto.id === id) {
           return {
             ...producto,
-            stock:Math.max(
+            stock: Math.max(
               0,
               producto.stock + cambio
             )
@@ -76,7 +76,7 @@ function App() {
         }
         return producto;
       });
-      setProductos (nuevosProductos);
+    setProductos(nuevosProductos);
   };
 
   return (
@@ -147,12 +147,6 @@ function App() {
       </div>
 
 
-      <section className='FormAddProd'>
-        <FormularioProducto
-          onAgregar={agregarProducto} />
-      </section>
-
-
       <section className="productos-grid">
         {productosOrdenados.map(producto => (
           <ProductoCard
@@ -169,6 +163,11 @@ function App() {
           <p>No se encontraron productos que coincidan con la búsqueda.</p>
         </div>
       )}
+
+      <section className='FormAddProd'>
+        <FormularioProducto
+          onAgregar={agregarProducto} />
+      </section>
     </main>
   );
 }
