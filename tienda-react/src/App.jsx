@@ -1,32 +1,35 @@
-import ProductoCard from './components/ProductoCard';
-import { productos as productosIniciales } from './data/productos';
-import { useState } from "react";
-import './App.css';
-import FormularioProducto from './components/FormularioProducto';
+import ProductoCard from "./components/ProductoCard";
+import { productos as productosIniciales, obtenerProductosIniciales} from "./data/productos.js";
+import { useState, useEffect, use } from "react";
+import "./App.css";
+import FormularioProducto from "./components/FormularioProducto";
 
 function App() {
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("Todas");
   const [soloDisponibles, setSoloDisponibles] = useState(false);
   const [orden, setOrden] = useState("normal");
-  const [productos, setProductos] = useState(productosIniciales);
+  const [productos, setProductos] = useState(obtenerProductosIniciales);
+  const [productoEditando, setProductoEditando] = useState(null);
+  const [filtroEstado, setFiltroEstado] = useState("Todos");
+  const [mensaje, setMensaje] = useState("");
 
-  const disponibles = productos.filter(producto => producto.stock > 0);
-  const noDisponibles = productos.filter(producto => producto.stock === 0);
+  useEffect(() => {
+    localStorage.setItem("inventario", JSON.stringify(productos));
+  }, [productos]);
+
+  const disponibles = productos.filter((producto) => producto.stock > 0);
+  const noDisponibles = productos.filter((producto) => producto.stock === 0);
   const valorInventario = productos.reduce(
     (total, producto) => total + producto.precio * producto.stock,
-    0
+    0,
   );
 
   const agregarProducto = (nuevoProducto) => {
-
-    setProductos([
-      ...productos,
-      nuevoProducto
-    ]);
+    setProductos([...productos, nuevoProducto]);
   };
 
-  const productosFiltrados = productos.filter(producto => {
+  const productosFiltrados = productos.filter((producto) => {
     const coincideNombre = producto.nombre
       .toLowerCase()
       .includes(busqueda.toLowerCase());
@@ -51,31 +54,22 @@ function App() {
   };
 
   const eliminarProductos = (id) => {
-
-    const nuevaLista = productos.filter(
-      producto => producto.id !== id
-    );
+    const nuevaLista = productos.filter((producto) => producto.id !== id);
 
     setProductos(nuevaLista);
-    alert('Producto eliminado')
+    alert("Producto eliminado");
   };
 
   const modificarStock = (id, cambio) => {
-
-    const nuevosProductos =
-      productos.map(producto => {
-
-        if (producto.id === id) {
-          return {
-            ...producto,
-            stock: Math.max(
-              0,
-              producto.stock + cambio
-            )
-          };
-        }
-        return producto;
-      });
+    const nuevosProductos = productos.map((producto) => {
+      if (producto.id === id) {
+        return {
+          ...producto,
+          stock: Math.max(0, producto.stock + cambio),
+        };
+      }
+      return producto;
+    });
     setProductos(nuevosProductos);
   };
 
@@ -84,10 +78,17 @@ function App() {
       <header className="banner-titulo">
         <h1 className="tiutle">Tienda tecnológica</h1>
         <div className="resumen-inventario">
-          <p><strong>Disponibles:</strong> {disponibles.length}</p>
-          <p><strong>Valor inventario:</strong> ${valorInventario.toLocaleString()}</p>
+          <p>
+            <strong>Disponibles:</strong> {disponibles.length}
+          </p>
+          <p>
+            <strong>Valor inventario:</strong> $
+            {valorInventario.toLocaleString()}
+          </p>
 
-          <p><strong>Agotados:</strong> {noDisponibles.length}</p>
+          <p>
+            <strong>Agotados:</strong> {noDisponibles.length}
+          </p>
         </div>
       </header>
 
@@ -143,12 +144,13 @@ function App() {
       </section>
 
       <div className="info-resultados">
-        <p>Productos encontrados: <strong>{productosOrdenados.length}</strong></p>
+        <p>
+          Productos encontrados: <strong>{productosOrdenados.length}</strong>
+        </p>
       </div>
 
-
       <section className="productos-grid">
-        {productosOrdenados.map(producto => (
+        {productosOrdenados.map((producto) => (
           <ProductoCard
             key={producto.id}
             producto={producto}
@@ -164,9 +166,8 @@ function App() {
         </div>
       )}
 
-      <section className='FormAddProd'>
-        <FormularioProducto
-          onAgregar={agregarProducto} />
+      <section className="FormAddProd">
+        <FormularioProducto onAgregar={agregarProducto} />
       </section>
     </main>
   );
