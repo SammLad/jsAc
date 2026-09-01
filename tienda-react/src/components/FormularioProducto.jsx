@@ -6,7 +6,8 @@ function FormularioProducto({ onAgregar }) {
         nombre: "",
         precio: "",
         categoria: "",
-        stock: ""
+        stock: "",
+        imagen: ""
     });
 
     const manejarCambio = (evento) => {
@@ -23,7 +24,8 @@ function FormularioProducto({ onAgregar }) {
             formulario.nombre.trim() === "" ||
             formulario.categoria.trim() === "" ||
             Number(formulario.precio) <= 0 ||
-            Number(formulario.stock) < 0
+            Number(formulario.stock) < 0 ||
+            formulario.imagen.trim() === ""
         ) {
             alert("Revisa los datos del producto");
             return;
@@ -34,10 +36,19 @@ function FormularioProducto({ onAgregar }) {
             nombre: formulario.nombre,
             precio: Number(formulario.precio),
             categoria: formulario.categoria,
-            stock: Number(formulario.stock)
+            stock: Number(formulario.stock),
+            imagen: formulario.imagen
         };
 
         onAgregar(nuevoProducto);
+
+        setFormulario({
+            nombre: "",
+            precio: "",
+            categoria: "",
+            stock: "",
+            imagen: ""
+        });
     };
 
 
@@ -59,13 +70,27 @@ function FormularioProducto({ onAgregar }) {
 
             <div className="campo-formulario">
                 <label>Categoría</label>
-                <input
+                {/* <input
                     type="text"
                     name="categoria"
                     placeholder="Ej: Perifericos"
                     value={formulario.categoria}
                     onChange={manejarCambio}
-                />
+                /> */}
+                <select
+                    className="select-form"
+                    name="categoria"
+                    value={formulario.categoria}
+                    onChange={manejarCambio}
+                >
+                    <option value="" disabled>Escoger categoría</option>
+                    <option value="Perifericos">Periféricos</option>
+                    <option value="Pantallas">Pantallas</option>
+                    <option value="Accesorios">Accesorios</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Mobiliario">Mobiliario</option>
+                    <option value="Almacenamiento">Almacenamiento</option>
+                </select>
             </div>
 
             <div className="campo-formulario">
@@ -86,6 +111,17 @@ function FormularioProducto({ onAgregar }) {
                     name="stock"
                     placeholder="Ej: 10"
                     value={formulario.stock}
+                    onChange={manejarCambio}
+                />
+            </div>
+
+            <div className="campo-formulario">
+                <label>URL de la imagen</label>
+                <input
+                    type="url"
+                    name="imagen"
+                    placeholder="Ej: https://sitio.com/imagen.jpg"
+                    value={formulario.imagen}
                     onChange={manejarCambio}
                 />
             </div>
