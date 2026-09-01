@@ -1,6 +1,6 @@
 import ProductoCard from "./components/ProductoCard";
-import { productos as productosIniciales, obtenerProductosIniciales} from "./data/productos.js";
-import { useState, useEffect, use } from "react";
+import { productos as productosIniciales, obtenerProductosIniciales } from "./data/productos.js";
+import { useState, useEffect } from "react";
 import "./App.css";
 import FormularioProducto from "./components/FormularioProducto";
 
@@ -13,6 +13,9 @@ function App() {
   const [productoEditando, setProductoEditando] = useState(null);
   const [filtroEstado, setFiltroEstado] = useState("Todos");
   const [mensaje, setMensaje] = useState("");
+
+
+
 
   useEffect(() => {
     localStorage.setItem("inventario", JSON.stringify(productos));
@@ -41,8 +44,11 @@ function App() {
   });
 
   const productosOrdenados = [...productosFiltrados].sort((a, b) => {
-    if (orden === "menorAMayor") return a.precio - b.precio;
-    if (orden === "mayorAMenor") return b.precio - a.precio;
+    if (orden === "az") return a.nombre.localeCompare(b.nombre);
+    if (orden === "pMenorAMayor") return a.precio - b.precio;
+    if (orden === "pMayorAMenor") return b.precio - a.precio;
+    if (orden === "sMenorAMayor") return a.stock - b.stock;
+    if (orden === "sMayorAMenor") return b.stock - a.stock;
     return 0;
   });
 
@@ -72,6 +78,23 @@ function App() {
     });
     setProductos(nuevosProductos);
   };
+
+  const editarProducto = (producto) => {
+    setProductoEditando(producto)
+    console.log("Producto a editar:", producto);
+  };
+
+  const actualizarProducto = (actualizado) => {
+    const nuevaLista = productos.map(producto =>
+      producto.id === actualizado.id
+        ? actualizado
+        : producto
+    );
+
+    setProductos(nuevaLista);
+    setProductoEditando(null);
+    alert("Producto editado correctamente")
+  }
 
   return (
     <main className="contenedor">
@@ -124,8 +147,11 @@ function App() {
             onChange={(e) => setOrden(e.target.value)}
           >
             <option value="normal">Sin ordenar</option>
-            <option value="menorAMayor">Precio: Menor a Mayor</option>
-            <option value="mayorAMenor">Precio: Mayor a Menor</option>
+            <option value="az">Nombre A-Z</option>
+            <option value="pMenorAMayor">Precio: Menor a Mayor</option>
+            <option value="pMayorAMenor">Precio: Mayor a Menor</option>
+            <option value="sMenorAMayor">Stock: Menor a Mayor</option>
+            <option value="sMayorAMenor">Stock: Mayor a Menor</option>
           </select>
 
           <label className="checkbox-label">
@@ -156,6 +182,7 @@ function App() {
             producto={producto}
             onEliminar={eliminarProductos}
             modificarStock={modificarStock}
+            onEditar={editarProducto}
           />
         ))}
       </section>
@@ -167,7 +194,12 @@ function App() {
       )}
 
       <section className="FormAddProd">
-        <FormularioProducto onAgregar={agregarProducto} />
+        <FormularioProducto
+          onAgregar={agregarProducto}
+          productoEditando={productoEditando}
+          onActualizar={actualizarProducto}
+          onCancelar={() => setProductoEditando(null)}
+        />
       </section>
     </main>
   );

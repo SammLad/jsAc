@@ -1,4 +1,4 @@
-function ProductoCard({ producto, onEliminar, modificarStock }) {
+function ProductoCard({ producto, onEliminar, modificarStock, onEditar }) {
     const {
         nombre, precio, categoria, stock, imagen
     } = producto;
@@ -82,6 +82,12 @@ function ProductoCard({ producto, onEliminar, modificarStock }) {
                     Eliminar
                 </button>
 
+            </div>
+
+            <div className="acciones-producto">
+                <button onClick={() => onEditar(producto)}>
+                    Editar
+                </button>
             </div>
 
         </article>

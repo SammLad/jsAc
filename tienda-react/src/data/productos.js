@@ -169,5 +169,5 @@ export const obtenerProductosIniciales = () => {
     return JSON.parse(guardados);
   }
 
-  return productosIniciales;
+  return productos;
 };
