@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-function FormularioProducto({ onAgregar }) {
+function FormularioProducto({ onAgregar, productoEditando, onActualizar, onCancelar }) {
 
     const [formulario, setFormulario] = useState({
         nombre: "",
@@ -9,6 +9,18 @@ function FormularioProducto({ onAgregar }) {
         stock: "",
         imagen: ""
     });
+
+    useEffect(() => {
+        if (productoEditando) {
+            setFormulario({
+                nombre: productoEditando.nombre,
+                categoria: productoEditando.categoria,
+                precio: productoEditando.precio,
+                stock: productoEditando.stock,
+                imagen: productoEditando.imagen
+            })
+        }
+    }, [productoEditando]);
 
     const manejarCambio = (evento) => {
         setFormulario({
@@ -31,16 +43,34 @@ function FormularioProducto({ onAgregar }) {
             return;
         }
 
-        const nuevoProducto = {
-            id: Date.now(),
-            nombre: formulario.nombre,
-            precio: Number(formulario.precio),
-            categoria: formulario.categoria,
-            stock: Number(formulario.stock),
-            imagen: formulario.imagen
-        };
-
         onAgregar(nuevoProducto);
+
+        if (productoEditando) {
+            const productoActualizado = {
+                id: productoActualizado.id,
+                nombre: formulario.nombre,
+                precio: Number(formulario.precio),
+                nombre: formulario.nombre,
+                precio: Number(formulario.precio),
+                categoria: formulario.categoria,
+                stock: Number(formulario.stock),
+                imagen: formulario.imagen
+            }
+
+            onActualizar(productoActualizado);
+        } else {
+            const nuevoProducto = {
+                id: date.now(),
+                nombre: formulario.nombre,
+                precio: Number(formulario.precio),
+                nombre: formulario.nombre,
+                precio: Number(formulario.precio),
+                categoria: formulario.categoria,
+                stock: Number(formulario.stock),
+                imagen: formulario.imagen
+            }
+            onAgregar(nuevoProducto);
+        }
 
         setFormulario({
             nombre: "",
@@ -52,10 +82,16 @@ function FormularioProducto({ onAgregar }) {
     };
 
 
+
     return (
         <form onSubmit={manejarEnvio} className="formulario-producto">
 
-            <h2>Agregar producto</h2>
+            <h2>
+                {productoEditando
+                    ? "Editar producto"
+                    : "Agregar producto"
+                }
+            </h2>
 
             <div className="campo-formulario">
                 <label>Nombre del producto</label>
@@ -123,8 +159,21 @@ function FormularioProducto({ onAgregar }) {
                 type="submit"
                 className="btn-agregar"
             >
-                Agregar producto
+                {productoEditando
+                    ? "Guardar cambios"
+                    : "Agregar producto"
+                }
             </button>
+
+            {productoEditando && (
+                <button
+                    type="button"
+                    className="btn-cancelar"
+                    onClick={onCancelar}
+                >
+                    Cancelar
+                </button>
+            )}
 
         </form>
     );
