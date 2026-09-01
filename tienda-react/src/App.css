@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 :root {
+  color-scheme: light;
+
   --bg-main: #fff8f8;
 
   --bg-header: #7a2232;
@@ -24,6 +26,10 @@
   --border-color: #edc8cc;
   --border-light: #f7dfe1;
 
+  --input-bg: #fffafa;
+  --input-focus-bg: #ffffff;
+  --disabled-bg: #d4b5b8;
+
   --shadow-sm: 0 4px 12px rgba(59, 30, 33, 0.08);
   --shadow-md: 0 10px 25px rgba(59, 30, 33, 0.12);
   --shadow-lg: 0 18px 45px rgba(59, 30, 33, 0.15);
@@ -39,14 +45,18 @@
    GENERAL
 ======================================== */
 
+
+html {
+  color-scheme: light !important;
+}
+
+
 * {
   box-sizing: border-box;
 }
 
+
 body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
   background:
     radial-gradient(circle at 0% 0%,
       #ffe8ea 0%,
@@ -54,8 +64,9 @@ body {
     radial-gradient(circle at 100% 100%,
       #ffecee 0%,
       transparent 30%),
-    var(--bg-main);
-  color: var(--text-primary);
+    var(--bg-main) !important;
+
+  color: var(--text-primary) !important;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -572,7 +583,7 @@ button:active {
    TEXTO DE LAS TARJETAS
 ======================================== */
 
-.producto-card h3 {
+.producto-card h2 {
   margin-top: 5px;
   margin-bottom: 9px;
   color: var(--text-primary);
