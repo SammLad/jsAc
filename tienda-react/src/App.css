@@ -47,7 +47,6 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-
   background:
     radial-gradient(circle at 0% 0%,
       #ffe8ea 0%,
@@ -56,9 +55,7 @@ body {
       #ffecee 0%,
       transparent 30%),
     var(--bg-main);
-
   color: var(--text-primary);
-
   font-family: 'Poppins', sans-serif;
 }
 
@@ -70,9 +67,7 @@ body {
 .contenedor {
   width: 100%;
   max-width: 1250px;
-
   margin: 0 auto;
-
   padding: 35px 25px 60px;
 }
 
@@ -89,51 +84,34 @@ body {
     linear-gradient(135deg,
       var(--bg-header),
       #963344);
-
   border-radius: var(--radius-lg);
-
   padding: 32px 36px;
-
   margin-bottom: 28px;
-
   box-shadow: var(--shadow-lg);
-
   display: flex;
-
   justify-content: space-between;
   align-items: center;
-
   gap: 25px;
 }
 
 .banner-titulo::before {
   content: "";
-
   position: absolute;
-
   width: 230px;
   height: 230px;
-
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.06);
-
   right: -80px;
   top: -100px;
 }
 
 .banner-titulo::after {
   content: "";
-
   position: absolute;
-
   width: 120px;
   height: 120px;
-
   border-radius: 50%;
-
   background: rgba(255, 255, 255, 0.05);
-
   left: 42%;
   bottom: -80px;
 }
@@ -141,50 +119,32 @@ body {
 .tiutle {
   position: relative;
   z-index: 2;
-
   margin: 0;
-
   color: var(--text-header);
-
   font-size: clamp(1.7rem, 4vw, 2.5rem);
-
   font-weight: 800;
-
   letter-spacing: -0.7px;
 }
 
 .resumen-inventario {
   position: relative;
   z-index: 2;
-
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 9px;
-
   padding: 10px;
-
   background: rgba(255, 255, 255, 0.13);
-
   border: 1px solid rgba(255, 255, 255, 0.2);
-
   border-radius: var(--radius-md);
-
   backdrop-filter: blur(10px);
-
   color: white;
-
   font-size: 0.82rem;
 }
 
 .resumen-inventario p {
   margin: 0;
-
   padding: 8px 11px;
-
   border-radius: 9px;
-
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -199,21 +159,13 @@ body {
 
 .panel-filtros {
   background: rgba(255, 255, 255, 0.95);
-
   border: 1px solid var(--border-light);
-
   border-radius: var(--radius-lg);
-
   padding: 25px;
-
   margin-bottom: 25px;
-
   box-shadow: var(--shadow-md);
-
   display: flex;
-
   flex-direction: column;
-
   gap: 18px;
 }
 
@@ -228,23 +180,14 @@ body {
 
 .input-busqueda {
   width: 100%;
-
   padding: 15px 18px;
-
   border: 2px solid var(--border-light);
-
   border-radius: var(--radius-md);
-
   outline: none;
-
   background: #fffafa;
-
   color: var(--text-primary);
-
   font-family: 'Poppins', sans-serif;
-
   font-size: 0.95rem;
-
   transition: all 0.25s ease;
 }
 
@@ -258,9 +201,7 @@ body {
 
 .input-busqueda:focus {
   background: white;
-
   border-color: var(--btn-bg);
-
   box-shadow:
     0 0 0 4px rgba(139, 43, 53, 0.11);
 }
@@ -272,52 +213,36 @@ body {
 
 .grupo-controles {
   display: flex;
-
   flex-wrap: wrap;
-
   align-items: center;
-
   gap: 12px;
 }
 
 .select-filtro,
 .select-form {
   min-height: 45px;
-
   padding: 10px 35px 10px 14px;
-
   border: 2px solid var(--border-light);
-
   border-radius: var(--radius-md);
-
   background: #fffafa;
-
   color: var(--text-primary);
-
   font-family: 'Poppins', sans-serif;
-
   font-size: 0.87rem;
-
   font-weight: 600;
-
   cursor: pointer;
-
   outline: none;
-
   transition: all 0.2s ease;
 }
 
 .select-filtro:hover,
 .select-form:hover {
   border-color: var(--border-color);
-
   background: white;
 }
 
 .select-filtro:focus,
 .select-form:focus {
   border-color: var(--btn-bg);
-
   box-shadow:
     0 0 0 3px rgba(139, 43, 53, 0.1);
 }
@@ -329,38 +254,26 @@ body {
 
 .checkbox-label {
   display: flex;
-
   align-items: center;
-
   gap: 9px;
-
   padding: 10px 13px;
-
   border-radius: var(--radius-md);
-
   color: var(--text-secondary);
-
   font-size: 0.87rem;
-
   font-weight: 600;
-
   cursor: pointer;
-
   transition: all 0.2s ease;
 }
 
 .checkbox-label:hover {
   background: var(--bg-panel);
-
   color: var(--btn-bg);
 }
 
 .checkbox-label input {
   width: 17px;
   height: 17px;
-
   accent-color: var(--btn-bg);
-
   cursor: pointer;
 }
 
@@ -371,26 +284,16 @@ body {
 
 button {
   font-family: 'Poppins', sans-serif;
-
   border: none;
-
   border-radius: 11px;
-
   padding: 11px 19px;
-
   font-size: 0.87rem;
-
   font-weight: 700;
-
   cursor: pointer;
-
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
-
   gap: 8px;
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -408,16 +311,13 @@ button:active {
 
 .btn-limpiar {
   margin-left: auto;
-
   min-height: 44px;
-
   background:
     linear-gradient(135deg,
       var(--btn-bg),
       var(--btn-light));
 
   color: white;
-
   box-shadow:
     0 5px 14px rgba(139, 43, 53, 0.22);
 }
@@ -427,9 +327,7 @@ button:active {
     linear-gradient(135deg,
       var(--btn-hover),
       var(--btn-bg));
-
   transform: translateY(-3px);
-
   box-shadow:
     0 9px 20px rgba(103, 31, 39, 0.28);
 }
@@ -445,23 +343,14 @@ button:active {
 
 .info-resultados {
   display: flex;
-
   align-items: center;
-
   margin-bottom: 18px;
-
   padding: 13px 17px;
-
   background: var(--bg-panel);
-
   border-left: 5px solid var(--btn-bg);
-
   border-radius: var(--radius-sm);
-
   color: var(--text-secondary);
-
   font-size: 0.9rem;
-
   box-shadow:
     0 3px 10px rgba(59, 30, 33, 0.04);
 }
@@ -472,7 +361,6 @@ button:active {
 
 .info-resultados strong {
   color: var(--btn-bg);
-
   font-weight: 800;
 }
 
@@ -482,71 +370,60 @@ button:active {
 ======================================== */
 
 .FormAddProd {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
   position: relative;
-
   background: rgba(255, 255, 255, 0.97);
-
   border: 1px solid var(--border-light);
-
   border-radius: var(--radius-lg);
-
   padding: 30px;
-
+  margin-top: 32px;
   margin-bottom: 32px;
-
   box-shadow: var(--shadow-md);
 }
 
 .FormAddProd::before {
   content: "";
-
   position: absolute;
-
   top: 0;
   left: 0;
-
   width: 100%;
   height: 5px;
-
   background:
     linear-gradient(90deg,
       var(--bg-header),
       #b94b58,
       #d9848d);
-
   border-radius: 20px 20px 0 0;
 }
 
 
 /* ========================================
-   ESTRUCTURA DEL FORMULARIO
+   ESTRUCTURA DEL FORMULARIO HORIZONTAL
 ======================================== */
 
 .FormAddProd form {
+  margin-top: 10px;
   display: grid;
-
-  /*
-       5 columnas:
-       Nombre | Categoría | Precio | Stock | Botón
-    */
-  grid-template-columns:
-    1.3fr 1.3fr 1fr 0.8fr 1fr;
-
+  grid-template-columns: 2fr 1.5fr 1fr 1fr 1.5fr auto;
   align-items: end;
-
-  gap: 13px;
+  gap: 12px;
+  width: 100%;
 }
 
 .FormAddProd h2 {
   grid-column: 1 / -1;
-
   margin: 0 0 8px;
-
   color: var(--text-primary);
-
   font-size: 1.35rem;
-
   font-weight: 800;
+}
+
+.FormAddProd .campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 
@@ -556,43 +433,28 @@ button:active {
 
 .campo-formulario {
   display: flex;
-
   flex-direction: column;
-
   gap: 6px;
 }
 
 .campo-formulario label {
   color: var(--text-primary);
-
   font-size: 0.82rem;
-
   font-weight: 700;
-
   padding-left: 3px;
 }
 
 .campo-formulario input {
   width: 100%;
-
   min-height: 46px;
-
   padding: 13px 14px;
-
   border: 2px solid var(--border-light);
-
   border-radius: var(--radius-md);
-
   background: #fffafa;
-
   color: var(--text-primary);
-
   font-family: 'Poppins', sans-serif;
-
   font-size: 0.88rem;
-
   outline: none;
-
   transition: all 0.25s ease;
 }
 
@@ -602,18 +464,14 @@ button:active {
 
 .campo-formulario input:hover {
   border-color: var(--border-color);
-
   background: white;
 }
 
 .campo-formulario input:focus {
   background: white;
-
   border-color: var(--btn-bg);
-
   box-shadow:
     0 0 0 4px rgba(139, 43, 53, 0.10);
-
   transform: translateY(-1px);
 }
 
@@ -624,31 +482,20 @@ button:active {
 
 .btn-agregar {
   width: 100%;
-
   min-height: 46px;
-
   background:
     linear-gradient(135deg,
       var(--bg-header),
       var(--btn-bg));
-
   color: white;
-
   border: 1px solid rgba(255, 255, 255, 0.15);
-
   border-radius: 12px;
-
   font-family: 'Poppins', sans-serif;
-
   font-size: 0.88rem;
-
   font-weight: 700;
-
   box-shadow:
     0 6px 16px rgba(122, 34, 50, 0.22);
-
   cursor: pointer;
-
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -660,16 +507,13 @@ button:active {
     linear-gradient(135deg,
       var(--btn-hover),
       var(--bg-header));
-
   transform: translateY(-3px);
-
   box-shadow:
     0 10px 23px rgba(103, 31, 39, 0.28);
 }
 
 .btn-agregar:active {
   transform: translateY(0) scale(0.97);
-
   box-shadow:
     0 4px 10px rgba(103, 31, 39, 0.2);
 }
@@ -681,31 +525,23 @@ button:active {
 
 .productos-grid {
   display: grid;
-
   grid-template-columns:
     repeat(auto-fill, minmax(250px, 1fr));
-
   gap: 23px;
 }
 
 .producto-card {
   position: relative;
-
   overflow: hidden;
-
   background:
     linear-gradient(145deg,
       #fff0f1,
       var(--bg-card));
 
   border: 1px solid var(--border-light);
-
   border-radius: var(--radius-lg);
-
   padding: 22px;
-
   box-shadow: var(--shadow-sm);
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease,
@@ -714,15 +550,11 @@ button:active {
 
 .producto-card::before {
   content: "";
-
   position: absolute;
-
   top: 0;
   left: 0;
-
   width: 100%;
   height: 4px;
-
   background:
     linear-gradient(90deg,
       var(--bg-header),
@@ -731,9 +563,7 @@ button:active {
 
 .producto-card:hover {
   transform: translateY(-8px);
-
   background: var(--bg-card-hover);
-
   box-shadow: var(--shadow-hover);
 }
 
@@ -744,21 +574,15 @@ button:active {
 
 .producto-card h3 {
   margin-top: 5px;
-
   margin-bottom: 9px;
-
   color: var(--text-primary);
-
   font-size: 1.15rem;
-
   font-weight: 800;
 }
 
 .producto-card p {
   margin: 6px 0;
-
   color: var(--text-secondary);
-
   font-size: 0.88rem;
 }
 
@@ -904,9 +728,7 @@ button:active {
 
 .acciones-producto {
   display: flex;
-
   gap: 9px;
-
   margin-top: 16px;
 }
 
@@ -917,13 +739,9 @@ button:active {
 
 .acciones-producto .btn-producto {
   flex: 1;
-
   width: auto;
-
   margin-top: 0;
-
   min-height: 42px;
-
   padding: 9px 12px;
 }
 
@@ -954,13 +772,9 @@ button:active {
 
 .btn-eliminar:hover {
   background: var(--btn-bg);
-
   border-color: var(--btn-bg);
-
   color: white;
-
   transform: translateY(-3px);
-
   box-shadow:
     0 7px 15px rgba(139, 43, 53, 0.22);
 }
@@ -975,16 +789,12 @@ button:active {
 
 .btn-producto {
   width: 100%;
-
   margin-top: 16px;
-
   background:
     linear-gradient(135deg,
       var(--text-primary),
       #5b2a30);
-
   color: white;
-
   box-shadow:
     0 5px 13px rgba(59, 30, 33, 0.18);
 }
@@ -994,9 +804,7 @@ button:active {
     linear-gradient(135deg,
       var(--btn-bg),
       var(--btn-light));
-
   transform: translateY(-3px);
-
   box-shadow:
     0 9px 19px rgba(139, 43, 53, 0.25);
 }
@@ -1013,15 +821,10 @@ button:active {
 button:disabled,
 .btn-producto:disabled {
   background: #d4b5b8;
-
   color: white;
-
   cursor: not-allowed;
-
   opacity: 0.65;
-
   transform: none;
-
   box-shadow: none;
 }
 
@@ -1032,28 +835,20 @@ button:disabled,
 
 .sin-resultados {
   padding: 55px 25px;
-
   text-align: center;
-
   background:
     linear-gradient(145deg,
       #fff0f1,
       var(--bg-panel));
-
   border: 1px dashed var(--border-color);
-
   border-radius: var(--radius-lg);
-
   color: var(--text-secondary);
-
   box-shadow: var(--shadow-sm);
 }
 
 .sin-resultados p {
   margin: 0;
-
   font-size: 0.95rem;
-
   font-weight: 600;
 }
 
@@ -1119,13 +914,12 @@ button:disabled,
     padding: 25px 20px;
   }
 
-  .tiutle {
+  .titulo {
     font-size: 1.65rem;
   }
 
   .resumen-inventario {
     flex-direction: column;
-
     align-items: stretch;
   }
 
@@ -1135,7 +929,6 @@ button:disabled,
 
   .grupo-controles {
     flex-direction: column;
-
     align-items: stretch;
   }
 
@@ -1164,4 +957,56 @@ button:disabled,
   .productos-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+
+/*FORMULARIO ACOMODADO*/
+
+
+form .formulario-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Alinea cada label sobre su respectivo input/select */
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo-formulario label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.campo-formulario input,
+.campo-formulario select,
+.select-form {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-agregar {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.btn-agregar:hover {
+  background-color: #0056b3;
 }

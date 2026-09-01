@@ -53,7 +53,7 @@ function FormularioProducto({ onAgregar }) {
 
 
     return (
-        <form onSubmit={manejarEnvio}>
+        <form onSubmit={manejarEnvio} className="formulario-producto">
 
             <h2>Agregar producto</h2>
 
@@ -70,13 +70,6 @@ function FormularioProducto({ onAgregar }) {
 
             <div className="campo-formulario">
                 <label>Categoría</label>
-                {/* <input
-                    type="text"
-                    name="categoria"
-                    placeholder="Ej: Perifericos"
-                    value={formulario.categoria}
-                    onChange={manejarCambio}
-                /> */}
                 <select
                     className="select-form"
                     name="categoria"
